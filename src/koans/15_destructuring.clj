@@ -31,7 +31,7 @@
 
   "Break up maps by keys"
   (= "123 Test Lane, Testerville, TX"
-    (let [{street-address :street-address, city :city, state :state} test-address]
+    (let [{street-address :street-address city :city state :state} test-address]
       (str street-address ", " city ", " state)))
 
   "Or more succinctly"
