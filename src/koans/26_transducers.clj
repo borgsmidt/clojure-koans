@@ -6,25 +6,25 @@
 
 (def transforms
   (comp (map inc)
-     (filter even?)))
+    (filter even?)))
 
 (meditations
- "A sequence operation with only one argument often returns a transducer"
- (= __
+  "A sequence operation with only one argument often returns a transducer"
+  (= '(2 3 4)
     (sequence example-transducer [1 2 3]))
 
- "Consider that sequence operations can be composed as transducers"
- (= __
+  "Consider that sequence operations can be composed as transducers"
+  (= [2 4]
     (transduce transforms conj [1 2 3]))
 
- "We can do this eagerly"
- (= __
+  "We can do this eagerly"
+  (= [2 4]
     (into [] transforms [1 2 3]))
 
- "Or lazily"
- (= __
+  "Or lazily"
+  (= '(2 4)
     (sequence transforms [1 2 3]))
 
- "The transduce function can combine mapping and reduction"
- (= __
+  "The transduce function can combine mapping and reduction"
+  (= 6
     (transduce transforms + [1 2 3])))
